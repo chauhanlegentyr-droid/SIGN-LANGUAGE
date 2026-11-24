@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Language Sign Translator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .app-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            width: 400px;
+            text-align: center;
+        }
+        h2 { color: #333; margin-top: 0; }
+        select, input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        select { background-color: #fff; cursor: pointer; }
+        button {
+            background-color: #2b7a78;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover { background-color: #172a3a; }
+        
+        /* The Avatar Screen Box */
+        .avatar-screen {
+            height: 200px;
+            background-color: #1e1e24;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #00ffcc;
+            font-family: monospace;
+            font-size: 18px;
+            font-weight: bold;
+            border: 2px solid #333;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <h2>Sign Language Translator</h2>
+        
+        <!-- Language Selector -->
+        <select id="languageSelect">
+            <option value="ASL">American Sign Language (ASL)</option>
+            <option value="JSL">Japanese Sign Language (JSL)</option>
+            <option value="ISL">Indian Sign Language (ISL)</option>
+        </select>
+
+        <!-- Message Input -->
+        <input type="text" id="messageInput" placeholder="Type your message here..." value="Where is the bathroom?">
+        
+        <!-- Action Button -->
+        <button onclick="simulateTranslation()">Generate Signs</button>
+
+        <!-- The Animation Area Showcase -->
+        <div class="avatar-screen" id="avatarDisplay">
+            [ Avatar Ready ]
+        </div>
+    </div>
+
+    <script>
+        // Simple frontend simulation logic to visualize the timeline sequence
+        function simulateTranslation() {
+            const text = document.getElementById('messageInput').value.toLowerCase();
+            const display = document.getElementById('avatarDisplay');
+            const language = document.getElementById('languageSelect').value;
+            
+            display.innerText = "Processing Language Matrix...";
+            
+            setTimeout(() => {
+                // Front-end emulation mimicking our Python backend logic rules
+                if (text.includes("bathroom") && text.includes("where")) {
+                    display.innerHTML = `🎬 Playing ${language}:<br><span style='color:white; font-size:24px;'>BATHROOM</span><br>⏳ then...<br><span style='color:white; font-size:24px;'>WHERE? 🤨</span>`;
+                } else {
+                    display.innerHTML = `🎬 System Playing:<br><span style='color:white;'>"${text}"</span>`;
+                }
+            }, 800);
+        }
+    </script>
+
+</body>
+</html>
